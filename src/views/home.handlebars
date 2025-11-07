@@ -24,17 +24,45 @@
       </div>
 
       <div class="col-12">
-        <div class="retreat-info">
+        <!-- Desktop: logo + texto no fluxo normal -->
+        <div class="retreat-info d-none d-md-flex">
           <picture>
             <source srcset="{{retreat.logoWebp}}" type="image/webp" />
             <img class="retreat-logo" src="{{retreat.logo}}" alt="Logo do Retiro" loading="lazy" />
           </picture>
           <p class="mb-0">{{{retreat.description}}}</p>
         </div>
+
+        <!-- Mobile: apenas botão que abre modal -->
+        <div class="retreat-info-mobile d-md-none">
+          <button type="button" class="btn btn-dark retreat-info-button">Sobre o Retiro</button>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Modal: Sobre o Retiro (mobile) -->
+<div class="retreat-modal" id="retreatModal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="retreat-modal-backdrop" data-close="true"></div>
+  <div class="retreat-modal-content" role="document" aria-labelledby="retreatModalTitle">
+    <button class="retreat-modal-close" aria-label="Fechar" data-close="true">×</button>
+    <div class="retreat-modal-body">
+      <div class="retreat-modal-header">
+        <h3 id="retreatModalTitle" class="retreat-modal-title">Sobre o Retiro</h3>
+      </div>
+      <div class="retreat-modal-media">
+        <picture>
+          <source srcset="{{retreat.logoWebp}}" type="image/webp" />
+          <img src="{{retreat.logo}}" alt="Logo do Retiro" />
+        </picture>
+      </div>
+      <div class="retreat-modal-text">
+        {{{retreat.description}}}
+      </div>
+    </div>
+  </div>
+  </div>
 
 
 <section class="poster-section py-5">
@@ -153,6 +181,34 @@
       running = true;
       requestAnimationFrame(step);
     }
+  });
+})();
+</script>
+
+<script>
+// Modal "Sobre o Retiro" para mobile
+(function() {
+  var button = document.querySelector('.retreat-info-button');
+  var modal = document.getElementById('retreatModal');
+  if (!button || !modal) return;
+  var closeEls = modal.querySelectorAll('[data-close="true"]');
+
+  function openModal() {
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  button.addEventListener('click', openModal);
+  closeEls.forEach(function(el){ el.addEventListener('click', closeModal); });
+
+  modal.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
   });
 })();
 </script>
