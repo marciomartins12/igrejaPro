@@ -452,40 +452,86 @@ margin-top: clamp(100px, 2vw, 28px);
 }
 
 /* ===== Seção Colaboradores (carrossel) ===== */
-.partners-section { background: #fff; margin-top: clamp(48px, 6vw, 120px); }
+.partners-section {
+  background: #fff;
+  margin-top: clamp(48px, 6vw, 120px);
+}
+
 .partners-title {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: clamp(24px, 3.6vw, 36px);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  font-size: clamp(26px, 3.8vw, 40px);
   margin-bottom: 4px;
 }
-.partners-subtitle { color: #555; margin-bottom: 0; }
+
+.partners-subtitle {
+  color: #555;
+  margin-bottom: 10px;
+}
 
 .partners-carousel {
   position: relative;
   overflow: hidden;
   border: 1px solid #e8e8e8;
-  border-radius: 12px;
-  background: #fafafa;
-  padding: 10px 0;
+  border-radius: 16px;
+  background: #f7f7f7;
+  padding: 14px 0;
+}
+
+/* fades nas bordas para suavizar entrada/saída dos logos */
+.partners-carousel::before,
+.partners-carousel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  pointer-events: none;
+  z-index: 2;
+}
+.partners-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(247,247,247,1), rgba(247,247,247,0));
+}
+.partners-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(247,247,247,1), rgba(247,247,247,0));
 }
 
 .partners-track {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: clamp(18px, 2.2vw, 28px);
   will-change: transform;
+  padding: 4px 12px;
 }
 
 .partner-logo {
-  height: 140px;
+  height: 120px;
   width: auto;
   object-fit: contain;
-  filter: saturate(1.05);
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 14px;
+  padding: 10px 12px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+  transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease;
+  filter: grayscale(0.15) saturate(1);
+}
+
+.partner-logo:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.12);
+  filter: grayscale(0) saturate(1.15);
+}
+
+@media (min-width: 992px) {
+  .partner-logo { height: 140px; padding: 12px 14px; }
 }
 
 @media (max-width: 576px) {
-  .partner-logo { height: 120px; }
+  .partner-logo { height: 110px; }
   .partners-track { gap: 16px; }
 }
 
