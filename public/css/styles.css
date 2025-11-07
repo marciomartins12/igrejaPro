@@ -1,0 +1,467 @@
+:root {
+  --hero-max-height: 360px;
+  --font-heading: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
+}
+
+/* Fonte global e base de tamanho */
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.hero-image {
+  max-height: var(--hero-max-height);
+  width: 100%;
+  object-fit: cover;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Retiro: seção principal */
+.retreat-hero {
+  background: linear-gradient(90deg, #ffdf80 0%, #ffad6a 52%, #ff764d 100%);
+  border-radius: 0;
+  color: #222;
+  min-height: 100vh; /* ocupa ao menos a tela, mas cresce se precisar */
+  box-sizing: border-box; /* inclui padding na altura total */
+  display: flex;
+  align-items: flex-start; /* conteúdo começa no topo */
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+}
+
+.retreat-heading {
+  text-align: left;
+}
+
+.retreat-kicker {
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: var(--font-heading);
+}
+
+.retreat-title {
+  font-weight: 800;
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1.05;
+  font-family: var(--font-heading);
+}
+
+.retreat-title-image {
+  width: min(80%, 500px);
+  height: auto;
+  display: block;
+}
+
+.retreat-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .retreat-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .retreat-cards {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.retreat-card {
+  border-radius: 20px;
+  padding: 0;
+  background: transparent;
+  border: 2px solid #000;
+  box-shadow: none;
+  overflow: hidden;
+  display: block;
+}
+
+.retreat-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 0;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .retreat-card img {
+    height: 200px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .retreat-card img {
+    height: 220px;
+  }
+}
+
+/* Color blocks for visual variety */
+.retreat-cards .retreat-card:nth-child(1) { background: #86efac; }
+.retreat-cards .retreat-card:nth-child(2) { background: #f9a8d4; }
+.retreat-cards .retreat-card:nth-child(3) { background: #93c5fd; }
+.retreat-cards .retreat-card:nth-child(4) { background: #fca5a5; }
+.retreat-cards .retreat-card:nth-child(5) { background: #c4b5fd; }
+.retreat-cards .retreat-card:nth-child(6) { background: #fde68a; }
+
+.retreat-info {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.retreat-logo {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+}
+
+@media (min-width: 992px) {
+  .retreat-logo {
+    width: 260px;
+    height: 260px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .retreat-logo {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+.retreat-info p {
+  max-width: 560px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+/* Poster section */
+.poster-section {
+  background: #fff;
+  color: #222;
+  min-height: 100vh; /* seção ocupa a altura da tela */
+  display: flex;
+  align-items: center; /* conteúdo centralizado verticalmente */
+}
+
+/* Igualar alturas das colunas do cartaz */
+.poster-row {
+  align-items: stretch;
+}
+
+.poster-text-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.poster-title {
+  font-weight: 300;
+  font-size: clamp(2.75rem, 5.5vw, 4rem); /* aproxima tamanho do slide de referência */
+  line-height: 1.1;
+  letter-spacing: 0.015em;
+  margin: 0 0 0.5rem 0;
+  font-family: var(--font-heading);
+  text-align: left;
+}
+
+.poster-image {
+  width: 100%;
+  max-width: clamp(360px, 38vw, 560px); /* maior em desktop, com limite superior */
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+  .poster-image {
+    width: 100%; /* ocupar toda a coluna para ficar grande */
+  }
+}
+
+.poster-subtitle {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.125rem, 2.4vw, 1.35rem);
+  text-align: left;
+}
+
+.poster-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1.4rem; /* mais espaço entre itens */
+  text-align: left;
+}
+
+.poster-item {
+  position: relative;
+  padding-left: 1.1rem;
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  line-height: 1.6;
+}
+
+.poster-item::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  color: #ff7a00;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.poster-item strong {
+  color: #ff7a00;
+}
+/* Ajustes de tipografia para desktop: bullets menores e subtítulo levemente reduzido */
+@media (min-width: 992px) {
+  .poster-item { font-size: 0.98rem; line-height: 1.6; }
+  .poster-subtitle { font-size: 1.1rem; }
+}
+
+/* Alinhamento refinado dos títulos */
+.poster-title,
+.poster-subtitle {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Espaço leve abaixo do subtítulo para iniciar a lista como na imagem */
+.poster-subtitle { margin-bottom: 0.75rem; }
+
+/* Cor do corpo do texto ligeiramente mais suave para se aproximar do tom da imagem */
+.poster-item { color: #4a4a4a; }
+
+.poster-titles-row {
+  align-items: baseline; /* a row já é flex pelo Bootstrap */
+}
+
+.poster-content-row {
+  align-items: stretch;
+}
+
+/* Highlights section (Diretor espiritual & Coordenação geral) */
+.highlights-section {
+  position: relative;
+  background: #fff;
+  overflow: hidden;
+
+  /* espaço visível entre o xadrez e o conteúdo, escalando com viewport */
+  padding-top: clamp(180px, 18vw, 320px);
+  padding-bottom: clamp(180px, 18vw, 320px);
+  
+}
+
+.highlights-section .border-strip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 96px; /* quadrados mais altos */
+  background-image: url('/img/xadrezdaborda.png');
+  background-repeat: repeat-x;
+  background-size: 800px 96px; /* tiles muito mais largos => bem menos repetição */
+  background-position: center;
+  z-index: 1;
+}
+
+/* Em telas muito largas, ampliar ainda mais a largura dos tiles */
+@media (min-width: 1400px) {
+  .highlights-section .border-strip {
+    background-size: 1200px 96px;
+  }
+}
+.highlights-section .border-strip.top { top: 0; }
+.highlights-section .border-strip.bottom { bottom: 0; }
+
+.highlights-section .decor {
+  position: absolute;
+  z-index: 2;
+}
+.decor-fire { top: 10px; left: -90px; width: 250px; }
+.decor-smile { top: 10px; right: -120px; width: 250px; }
+.decor-starburst  { left: -150px; bottom: 60px; width: 250px; }
+.decor-flower { bottom: 60px; right: -100px; width: 250px; }
+
+.sparkle { width: clamp(110px, 8vw, 160px); height: auto; }
+
+/* Aumentar espaçamento interno entre colunas da terceira seção */
+.highlights-section .row.g-5 { --bs-gutter-y: clamp(3rem, 6vw, 5rem); --bs-gutter-x: clamp(2.5rem, 6vw, 5rem); }
+
+/* Usar apenas as imagens com arte e texto embutidos */
+
+.highlight-photo {
+  width: clamp(240px, 24vw, 420px); /* ainda menor, mantendo responsividade */
+  height: auto;
+  display: block;
+  /* espaço extra ao redor das fotos para afastar do xadrez */
+  margin-top: clamp(12px, 2vw, 28px);
+  margin-bottom: clamp(12px, 2vw, 28px);
+}
+
+@media (min-width: 992px) {
+  .highlights-section { padding-top: 240px; padding-bottom: 240px; }
+}
+
+/* Responsividade mobile para a última seção */
+@media (max-width: 576px) {
+  /* Ocultar a imagem do meio (brilho) e aproximar as principais */
+  .highlights-section .row.g-5 { --bs-gutter-y: 2rem; }
+  .highlights-section .sparkle { display: none; }
+
+  .highlights-section .border-strip {
+    height: 72px;
+    background-size: 600px 72px; /* menos repetição e espessura adequada */
+  }
+
+  .sparkle { width: clamp(80px, 10vw, 120px); }
+
+  .highlight-photo {
+    width: min(90%, clamp(220px, 60vw, 360px));
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  /* Reduzir e reposicionar decorações para não colidir com o conteúdo */
+  .decor-fire { top: 6px; left: -40px; width: 120px; }
+  .decor-smile { top: 8px; right: -50px; width: 130px; }
+  .decor-starburst { left: -60px; bottom: 40px; width: 140px; }
+  .decor-flower { bottom: 40px; right: -50px; width: 130px; }
+}
+
+/* Galeria */
+.gallery-section {
+  background: #ffe082; /* amarelo suave, semelhante ao herói */
+  margin-top: -24px; /* aproxima o fundo amarelo do xadrez */
+  padding-top: 48px; /* compensa o deslocamento para manter respiro do conteúdo */
+  padding-bottom: 48px;
+}
+
+.gallery-title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(2rem, 4.8vw, 3rem);
+  margin-bottom: 0.25rem;
+}
+
+.gallery-subtitle {
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.gallery-button { border-radius: 999px; padding: 0.6rem 1.2rem; }
+
+.gallery-card {
+  display: block;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 2px solid #000;
+  background: #fff;
+  cursor: pointer;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+@media (min-width: 992px) {
+  .gallery-card img { height: 260px; }
+}
+
+/* Em telas pequenas, garantir espaçamento agradável */
+@media (max-width: 576px) {
+  .gallery-section { margin-top: -16px; padding-top: 36px; padding-bottom: 32px; }
+  .gallery-grid { row-gap: 12px; }
+  .gallery-card { border-radius: 14px; }
+  .gallery-card img { height: 160px; }
+}
+
+/* ===== Seção Extras (Store + blocos) ===== */
+.extras-section {
+  background: #f6f6f6;
+  padding-top: clamp(48px, 8vw, 96px);
+  padding-bottom: clamp(40px, 6vw, 80px);
+}
+
+.extras-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.extras-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(16px, 2.6vw, 20px);
+  color: #555;
+  margin-bottom: 0;
+}
+
+.extras-poster {
+  max-width: min(100%, 620px);
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+.extras-grid { row-gap: 1.25rem; }
+
+.extras-card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.extras-card-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.extras-card-body { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+
+.extras-card-image { max-width: 240px; width: 100%; height: auto; }
+
+.extras-badge-youtube {
+  display: inline-block;
+  background: #ff0033;
+  color: #fff;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.extras-emoji { font-size: 42px; line-height: 1; }
+
+@media (max-width: 576px) {
+  .extras-poster { max-width: 100%; }
+  .extras-grid { row-gap: 1rem; }
+  .extras-card-image { max-width: 200px; }
+}

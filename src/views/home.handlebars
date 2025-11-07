@@ -1,0 +1,174 @@
+<section class="retreat-hero py-5">
+  <div class="container">
+    <div class="row g-2 align-items-start">
+      <div class="col-12">
+        <div class="retreat-heading">
+          <img class="retreat-title-image" src="{{retreat.titleImage}}" alt="Retiro Alfa e Ômega" />
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="retreat-cards">
+          {{#each retreat.cards}}
+            <div class="retreat-card">
+              <img src="{{this.src}}" alt="{{this.alt}}" loading="lazy" />
+            </div>
+          {{/each}}
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="retreat-info">
+          <img class="retreat-logo" src="{{retreat.logo}}" alt="Logo do Retiro" loading="lazy" />
+          <p class="mb-0">{{{retreat.description}}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Seção Extras movida para o final -->
+
+
+<section class="poster-section py-5">
+  <div class="container">
+    <!-- Linha somente de títulos, alinhados por baseline -->
+    <div class="row g-2 poster-titles-row justify-content-center align-items-baseline">
+      <div class="col-12 col-lg-4">
+        <h2 class="poster-title">{{poster.title}}</h2>
+      </div>
+      <div class="col-12 col-lg-8">
+        <h3 class="poster-subtitle">Elementos visuais e seus significados:</h3>
+      </div>
+    </div>
+
+    <!-- Linha de conteúdo: imagem (col-4) e texto (col-8) -->
+    <div class="row g-5 poster-content-row justify-content-center align-items-stretch">
+      <div class="col-12 col-lg-4 d-flex justify-content-center">
+        <img class="poster-image" src="{{poster.image}}" alt="{{poster.title}}" loading="lazy" />
+      </div>
+      <div class="col-12 col-lg-8 poster-text-col">
+        <ul class="poster-list">
+          {{#each poster.bullets}}
+            <li class="poster-item">{{{this.text}}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Seção Extras removida do topo -->
+
+<!-- Seção: Diretor espiritual e Coordenação geral (após o cartaz) -->
+<section class="highlights-section py-5">
+  <div class="border-strip top"></div>
+  <div class="border-strip bottom"></div>
+  <img class="decor decor-fire" src="/img/foguinho.png" alt="Decor fogo" loading="lazy" />
+  <img class="decor decor-starburst" src="/img/sticker.png" alt="Decor estrela" loading="lazy" />
+  <img class="decor decor-smile" src="/img/blink.png" alt="Decor sorriso" loading="lazy" />
+  <img class="decor decor-flower" src="/img/florzinha.png" alt="Decor flor" loading="lazy" />
+
+  <div class="container">
+    <div class="row justify-content-center align-items-center g-5">
+      <div class="col-12 col-md-5 d-flex justify-content-center">
+        <img class="highlight-photo" src="/img/Diretor%20esperitual%20.png" alt="Diretor espiritual" loading="lazy" />
+      </div>
+
+      <div class="col-12 col-md-2 d-flex justify-content-center">
+        <img class="sparkle" src="/img/brilho.png" alt="Brilho" loading="lazy" />
+      </div>
+
+      <div class="col-12 col-md-5 d-flex justify-content-center">
+        <img class="highlight-photo" src="/img/Coordenação.png" alt="Coordenação geral" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Seção de Galeria (coladinha ao xadrez) -->
+<section id="galeria" class="gallery-section">
+  <div class="container">
+    <div class="row align-items-center gy-3 mb-3">
+      <div class="col-12 col-lg-8">
+        <h2 class="gallery-title">Galeria Alfa&Ômega</h2>
+        <p class="gallery-subtitle">Clique e acesse fotos e vídeos exclusivos!</p>
+      </div>
+      <div class="col-12 col-lg-4 text-lg-end">
+        <a class="btn btn-dark gallery-button" href="{{gallery.url}}" target="_blank" rel="noopener">Ver galeria</a>
+      </div>
+    </div>
+
+    <div class="row g-4 gallery-grid">
+      <div class="col-12 col-lg-6">
+        <a class="gallery-card" href="{{gallery.url}}" target="_blank" rel="noopener">
+          <img src="{{gallery.images.[0].src}}" alt="{{gallery.images.[0].alt}}" loading="lazy" />
+        </a>
+      </div>
+      <div class="col-12 col-lg-6">
+        <a class="gallery-card" href="{{gallery.url}}" target="_blank" rel="noopener">
+          <img src="{{gallery.images.[1].src}}" alt="{{gallery.images.[1].alt}}" loading="lazy" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Seção: Extras (Store + blocos de iniciativas) — última seção -->
+<section class="extras-section py-5">
+  <div class="container">
+    <!-- Linha hero: Store (texto) + cartaz da camisa -->
+    <div class="row g-5 align-items-center extras-hero">
+      <div class="col-12 col-lg-5">
+        <h2 class="extras-title">Alfa&Ômega Store</h2>
+        <p class="extras-subtitle">Adquira sua camisa 2026</p>
+      </div>
+      <div class="col-12 col-lg-7 text-center text-lg-end">
+        <img class="extras-poster" src="/img/camisa%20oficial.png" alt="Camisa oficial 2026" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Grid com itens: Conexão Sem Fim, Documentário RC, Geração A&O, Agenda -->
+    <div class="row g-4 extras-grid mt-4">
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="extras-card h-100 text-center">
+          <div class="extras-card-title">Conexão Sem Fim</div>
+          <div class="extras-card-body">
+            <img class="extras-card-image" src="/img/conexao%20sem%20fim.PNG" alt="Conexão Sem Fim" loading="lazy" />
+            <p class="small mb-0">Evento anual realizado meses após o retiro.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="extras-card h-100 text-center">
+          <div class="extras-card-title">Documentário RC</div>
+          <div class="extras-card-body">
+            <div class="extras-badge-youtube">YouTube</div>
+            <p class="small mb-0">Acompanhe histórias e testemunhos em vídeo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="extras-card h-100 text-center">
+          <div class="extras-card-title">Geração Alfa&Ômega</div>
+          <div class="extras-card-body">
+            <img class="extras-card-image" src="/img/GerçãoAO%20(1).PNG" alt="Geração Alfa&Ômega" loading="lazy" />
+            <p class="small mb-0">Encontros mensais nas paróquias pelos retirantes.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="extras-card h-100 text-center">
+          <div class="extras-card-title">Agenda</div>
+          <div class="extras-card-body">
+            <div class="extras-emoji">📅</div>
+            <p class="small mb-0">Fique por dentro das próximas atividades.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

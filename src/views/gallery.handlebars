@@ -1,0 +1,23 @@
+<section class="gallery-page py-5">
+  <div class="container">
+    <div class="row align-items-center gy-3 mb-3">
+      <div class="col-12 col-lg-8">
+        <h1 class="gallery-title">{{gallery.title}}</h1>
+        <p class="gallery-subtitle">Fotos e vídeos exclusivos do Retiro Alfa & Ômega.</p>
+      </div>
+      <div class="col-12 col-lg-4 text-lg-end">
+        <a class="btn btn-dark gallery-button" href="{{gallery.url}}" target="_blank" rel="noopener">Abrir álbum externo</a>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      {{#each gallery.images}}
+        <div class="col-12 col-md-6 col-lg-4">
+          <a class="gallery-card" href="{{../gallery.url}}" target="_blank" rel="noopener">
+            <img src="{{this.src}}" alt="{{this.alt}}" loading="lazy" />
+          </a>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</section>

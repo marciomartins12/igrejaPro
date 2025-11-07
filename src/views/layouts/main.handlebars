@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{churchName}} — Página Inicial</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="/css/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container">
+          <a class="navbar-brand fw-semibold" href="/">{{churchName}}</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ms-auto">
+              {{#each menu}}
+                <li class="nav-item"><a class="nav-link" href="{{href}}">{{label}}</a></li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      {{{body}}}
+    </main>
+
+    <footer class="bg-dark text-white mt-5 py-4">
+      <div class="container">
+        <div class="row gy-3 align-items-center">
+          <div class="col-12 col-md-6">
+            <div><strong>Endereço:</strong> {{footer.address}}</div>
+            <div><strong>Telefone:</strong> {{footer.phone}}</div>
+            <div><strong>Email:</strong> {{footer.email}}</div>
+          </div>
+          <div class="col-12 col-md-6 text-md-end">
+            <a class="text-white me-3" href="{{footer.social.facebook}}" target="_blank" rel="noopener">Facebook</a>
+            <a class="text-white me-3" href="{{footer.social.instagram}}" target="_blank" rel="noopener">Instagram</a>
+            <a class="text-white" href="{{footer.social.youtube}}" target="_blank" rel="noopener">YouTube</a>
+          </div>
+        </div>
+        <div class="text-center mt-3 small opacity-75">
+          © {{year}} {{churchName}}. Todos os direitos reservados.
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
