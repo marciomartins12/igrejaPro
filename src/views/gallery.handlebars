@@ -14,7 +14,10 @@
       {{#each gallery.images}}
         <div class="col-12 col-md-6 col-lg-4">
           <a class="gallery-card" href="{{../gallery.url}}" target="_blank" rel="noopener">
-            <img src="{{this.src}}" alt="{{this.alt}}" loading="lazy" />
+            <picture>
+              <source srcset="{{this.webpSrc}}" type="image/webp" />
+              <img src="{{this.src}}" alt="{{this.alt}}" loading="lazy" />
+            </picture>
           </a>
         </div>
       {{/each}}

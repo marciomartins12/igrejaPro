@@ -3,7 +3,10 @@
     <div class="row g-2 align-items-start">
       <div class="col-12">
         <div class="retreat-heading">
-          <img class="retreat-title-image" src="{{retreat.titleImage}}" alt="Retiro Alfa e Ômega" />
+          <picture>
+            <source srcset="{{retreat.titleImageWebp}}" type="image/webp" />
+            <img class="retreat-title-image" src="{{retreat.titleImage}}" alt="Retiro Alfa e Ômega" />
+          </picture>
         </div>
       </div>
 
@@ -11,7 +14,10 @@
         <div class="retreat-cards">
           {{#each retreat.cards}}
             <div class="retreat-card">
-              <img src="{{this.src}}" alt="{{this.alt}}" loading="lazy" />
+              <picture>
+                <source srcset="{{this.webpSrc}}" type="image/webp" />
+                <img src="{{this.src}}" alt="{{this.alt}}" loading="lazy" />
+              </picture>
             </div>
           {{/each}}
         </div>
@@ -19,7 +25,10 @@
 
       <div class="col-12">
         <div class="retreat-info">
-          <img class="retreat-logo" src="{{retreat.logo}}" alt="Logo do Retiro" loading="lazy" />
+          <picture>
+            <source srcset="{{retreat.logoWebp}}" type="image/webp" />
+            <img class="retreat-logo" src="{{retreat.logo}}" alt="Logo do Retiro" loading="lazy" />
+          </picture>
           <p class="mb-0">{{{retreat.description}}}</p>
         </div>
       </div>
@@ -43,7 +52,10 @@
     <!-- Linha de conteúdo: imagem (col-4) e texto (col-8) -->
     <div class="row g-5 poster-content-row justify-content-center align-items-stretch">
       <div class="col-12 col-lg-4 d-flex justify-content-center">
-        <img class="poster-image" src="{{poster.image}}" alt="{{poster.title}}" loading="lazy" />
+        <picture>
+          <source srcset="{{poster.imageWebp}}" type="image/webp" />
+          <img class="poster-image" src="{{poster.image}}" alt="{{poster.title}}" loading="lazy" />
+        </picture>
       </div>
       <div class="col-12 col-lg-8 poster-text-col">
         <ul class="poster-list">
@@ -71,15 +83,24 @@
   <div class="container">
     <div class="row justify-content-center align-items-center g-5 h-100">
       <div class="col-12 col-md-5 d-flex justify-content-center">
-        <img class="highlight-photo phot-top" src="/img/Diretor%20esperitual%20.png" alt="Diretor espiritual" loading="lazy" />
+        <picture>
+          <source srcset="/img/Diretor%20esperitual%20.webp" type="image/webp" />
+          <img class="highlight-photo phot-top" src="/img/Diretor%20esperitual%20.png" alt="Diretor espiritual" loading="lazy" />
+        </picture>
       </div>
 
       <div class="col-12 col-md-2 d-flex justify-content-center">
-        <img class="sparkle" src="/img/brilho.png" alt="Brilho" loading="lazy" />
+        <picture>
+          <source srcset="/img/brilho.webp" type="image/webp" />
+          <img class="sparkle" src="/img/brilho.png" alt="Brilho" loading="lazy" />
+        </picture>
       </div>
 
       <div class="col-12 col-md-5 d-flex justify-content-center">
-        <img class="highlight-photo photo-bottom" src="/img/Coordenação.png" alt="Coordenação geral" loading="lazy" />
+        <picture>
+          <source srcset="/img/Coordenação.webp" type="image/webp" />
+          <img class="highlight-photo photo-bottom" src="/img/Coordenação.png" alt="Coordenação geral" loading="lazy" />
+        </picture>
       </div>
     </div>
   </div>
@@ -140,12 +161,18 @@
     <div class="row g-4 gallery-grid">
       <div class="col-12 col-lg-6">
         <a class="gallery-card" href="{{gallery.url}}" target="_blank" rel="noopener">
-          <img src="{{gallery.images.[0].src}}" alt="{{gallery.images.[0].alt}}" loading="lazy" />
+          <picture>
+            <source srcset="{{gallery.images.[0].webpSrc}}" type="image/webp" />
+            <img src="{{gallery.images.[0].src}}" alt="{{gallery.images.[0].alt}}" loading="lazy" />
+          </picture>
         </a>
       </div>
       <div class="col-12 col-lg-6">
         <a class="gallery-card" href="{{gallery.url}}" target="_blank" rel="noopener">
-          <img src="{{gallery.images.[1].src}}" alt="{{gallery.images.[1].alt}}" loading="lazy" />
+          <picture>
+            <source srcset="{{gallery.images.[1].webpSrc}}" type="image/webp" />
+            <img src="{{gallery.images.[1].src}}" alt="{{gallery.images.[1].alt}}" loading="lazy" />
+          </picture>
         </a>
       </div>
     </div>
@@ -239,12 +266,30 @@
     <div class="partners-carousel" aria-label="Carrossel de colaboradores">
       <div class="partners-track">
         <!-- Sequência A -->
-        <img class="partner-logo" src="/img/apoiadores/apoiador%20(1).png" alt="Colaborador 1" loading="lazy" />
-        <img class="partner-logo" src="/img/apoiadores/apoiador%20(2).png" alt="Colaborador 2" loading="lazy" />
-        <img class="partner-logo" src="/img/apoiadores/apoiador%20(3).png" alt="Colaborador 3" loading="lazy" />
-        <img class="partner-logo" src="/img/apoiadores/apoiador%20(4).png" alt="Colaborador 4" loading="lazy" />
-        <img class="partner-logo" src="/img/apoiadores/apoiador%20(5).png" alt="Colaborador 5" loading="lazy" />
-        <img class="partner-logo" src="/img/apoiadores/apoiador%20(6).png" alt="Colaborador 6" loading="lazy" />
+        <picture>
+          <source srcset="/img/apoiadores/apoiador%20(1).webp" type="image/webp" />
+          <img class="partner-logo" src="/img/apoiadores/apoiador%20(1).png" alt="Colaborador 1" loading="lazy" />
+        </picture>
+        <picture>
+          <source srcset="/img/apoiadores/apoiador%20(2).webp" type="image/webp" />
+          <img class="partner-logo" src="/img/apoiadores/apoiador%20(2).png" alt="Colaborador 2" loading="lazy" />
+        </picture>
+        <picture>
+          <source srcset="/img/apoiadores/apoiador%20(3).webp" type="image/webp" />
+          <img class="partner-logo" src="/img/apoiadores/apoiador%20(3).png" alt="Colaborador 3" loading="lazy" />
+        </picture>
+        <picture>
+          <source srcset="/img/apoiadores/apoiador%20(4).webp" type="image/webp" />
+          <img class="partner-logo" src="/img/apoiadores/apoiador%20(4).png" alt="Colaborador 4" loading="lazy" />
+        </picture>
+        <picture>
+          <source srcset="/img/apoiadores/apoiador%20(5).webp" type="image/webp" />
+          <img class="partner-logo" src="/img/apoiadores/apoiador%20(5).png" alt="Colaborador 5" loading="lazy" />
+        </picture>
+        <picture>
+          <source srcset="/img/apoiadores/apoiador%20(6).webp" type="image/webp" />
+          <img class="partner-logo" src="/img/apoiadores/apoiador%20(6).png" alt="Colaborador 6" loading="lazy" />
+        </picture>
         <!-- Sequência B (duplicada para rolagem contínua) -->
         <img class="partner-logo" src="/img/apoiadores/apoiador%20(1).png" alt="Colaborador 1" loading="lazy" />
         <img class="partner-logo" src="/img/apoiadores/apoiador%20(2).png" alt="Colaborador 2" loading="lazy" />
