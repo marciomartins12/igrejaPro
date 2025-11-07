@@ -13,7 +13,7 @@ exports.index = (req, res) => {
         { src: '/img/velhinha%20freira.PNG', alt: 'Freira' },
         { src: '/img/carinha%20com%20o%20cajado.PNG', alt: 'Jovem com cajado' },
       ],
-      logo: '/img/logoazul.png',
+      logo: '/img/Logoazul.png',
       description:
         '<strong>Há 28 anos</strong>, o <strong>Retiro Alfa e Ômega</strong> é um <strong>movimento católico</strong> que transforma vidas por meio da força do Espírito Santo. Desde sua fundação, tem sido um espaço de encontro profundo com <strong>Deus</strong>, onde gerações de <strong>jovens têm sido evangelizadas, curadas e renovadas na fé</strong>. Em 2026, o movimento celebra 28 anos de missão, mantendo viva a chama do amor de Cristo e o desejo de formar jovens cheios do Espírito Santo, prontos para testemunhar o <strong>Evangelho com alegria e coragem</strong>.',
     },

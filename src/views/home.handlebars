@@ -27,8 +27,6 @@
   </div>
 </section>
 
-<!-- Seção Extras movida para o final -->
-
 
 <section class="poster-section py-5">
   <div class="container">
@@ -58,6 +56,7 @@
   </div>
 </section>
 
+
 <!-- Seção Extras removida do topo -->
 
 <!-- Seção: Diretor espiritual e Coordenação geral (após o cartaz) -->
@@ -70,9 +69,9 @@
   <img class="decor decor-flower" src="/img/florzinha.png" alt="Decor flor" loading="lazy" />
 
   <div class="container">
-    <div class="row justify-content-center align-items-center g-5">
+    <div class="row justify-content-center align-items-center g-5 h-100">
       <div class="col-12 col-md-5 d-flex justify-content-center">
-        <img class="highlight-photo" src="/img/Diretor%20esperitual%20.png" alt="Diretor espiritual" loading="lazy" />
+        <img class="highlight-photo phot-top" src="/img/Diretor%20esperitual%20.png" alt="Diretor espiritual" loading="lazy" />
       </div>
 
       <div class="col-12 col-md-2 d-flex justify-content-center">
@@ -80,11 +79,50 @@
       </div>
 
       <div class="col-12 col-md-5 d-flex justify-content-center">
-        <img class="highlight-photo" src="/img/Coordenação.png" alt="Coordenação geral" loading="lazy" />
+        <img class="highlight-photo photo-bottom" src="/img/Coordenação.png" alt="Coordenação geral" loading="lazy" />
       </div>
     </div>
   </div>
 </section>
+
+<!-- (seção Colaboradores removida deste ponto; será inserida no final) -->
+
+<script>
+// Rolagem contínua sem salto para o carrossel de colaboradores
+(function() {
+  var carousel = document.querySelector('.partners-carousel');
+  if (!carousel) return;
+  var track = carousel.querySelector('.partners-track');
+  if (!track) return;
+
+  var offset = 0; // posição X atual
+  var speed = 0.6; // pixels por frame (mais rápido = número maior)
+  var running = true;
+
+  function step() {
+    if (!running) return;
+    offset -= speed;
+    var half = track.scrollWidth / 2; // largura de metade (sequência A)
+    if (-offset >= half) {
+      // quando atingir metade, volta para 0 para manter continuidade
+      offset = 0;
+    }
+    track.style.transform = 'translateX(' + offset + 'px)';
+    requestAnimationFrame(step);
+  }
+
+  requestAnimationFrame(step);
+
+  // pausa ao passar o mouse
+  carousel.addEventListener('mouseenter', function() { running = false; });
+  carousel.addEventListener('mouseleave', function() {
+    if (!running) {
+      running = true;
+      requestAnimationFrame(step);
+    }
+  });
+})();
+</script>
 
 <!-- Seção de Galeria (coladinha ao xadrez) -->
 <section id="galeria" class="gallery-section">
@@ -114,8 +152,13 @@
   </div>
 </section>
 
+<!-- (seção Colaboradores removida deste ponto; será inserida após Extras) -->
+
+<!-- Seção: Colaboradores (carrossel automático) -->
+<!-- (movida para o final da página) -->
+
 <!-- Seção: Extras (Store + blocos de iniciativas) — última seção -->
-<section class="extras-section py-5">
+<section id="extras" class="extras-section py-5">
   <div class="container">
     <!-- Linha hero: Store (texto) + cartaz da camisa -->
     <div class="row g-5 align-items-center extras-hero">
@@ -128,47 +171,174 @@
       </div>
     </div>
 
-    <!-- Grid com itens: Conexão Sem Fim, Documentário RC, Geração A&O, Agenda -->
-    <div class="row g-4 extras-grid mt-4">
-      <div class="col-12 col-md-6 col-lg-3">
-        <div class="extras-card h-100 text-center">
-          <div class="extras-card-title">Conexão Sem Fim</div>
-          <div class="extras-card-body">
-            <img class="extras-card-image" src="/img/conexao%20sem%20fim.PNG" alt="Conexão Sem Fim" loading="lazy" />
-            <p class="small mb-0">Evento anual realizado meses após o retiro.</p>
+    <hr class="extras-divider" />
+
+    <div class="extras-lower">
+      <!-- Grid com itens: Conexão Sem Fim, Documentário RC, Geração A&O, Agenda -->
+      <div class="row g-4 extras-grid mt-4">
+      <div class="col-6 col-md-6">
+        <div class="extras-compact-stack">
+          <div class="extras-card extras-card--compact text-center">
+            <div class="extras-card-title">Conexão Sem Fim</div>
+            <div class="extras-card-body">
+              <img class="extras-card-image" src="/img/conexao%20sem%20fim.PNG" alt="Conexão Sem Fim" loading="lazy" />
+              <p class="small mb-0">Evento anual realizado meses após o retiro.</p>
+            </div>
+          </div>
+
+          <div class="extras-card extras-card--compact text-center">
+            <div class="extras-card-title">Geração Alfa&Ômega</div>
+            <div class="extras-card-body">
+              <img class="extras-card-image" src="/img/GerçãoAO%20(1).PNG" alt="Geração Alfa&Ômega" loading="lazy" />
+              <p class="small mb-0">Encontros mensais nas paróquias pelos retirantes.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="col-12 col-md-6 col-lg-3">
-        <div class="extras-card h-100 text-center">
-          <div class="extras-card-title">Documentário RC</div>
-          <div class="extras-card-body">
-            <div class="extras-badge-youtube">YouTube</div>
-            <p class="small mb-0">Acompanhe histórias e testemunhos em vídeo.</p>
+      <div class="col-6 col-md-6">
+        <div class="extras-compact-stack">
+          <a href="https://www.youtube.com/c/RCAlfaeÔmegaOfc/streams" class="extras-card-link">
+            <div class="extras-card extras-card--compact text-center">
+              <div class="extras-card-title">Documentário RC</div>
+              <div class="extras-card-body">
+                <div class="extras-badge-youtube">YouTube</div>
+                <p class="small mb-0">Histórias e testemunhos em vídeo.</p>
+              </div>
+            </div>
+          </a>
+
+          <div class="extras-card extras-card--compact text-center">
+            <div class="extras-card-title">Agenda</div>
+            <div class="extras-card-body">
+              <div class="extras-emoji">📅</div>
+              <p class="small mb-0">Próximas atividades e eventos.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="col-12 col-md-6 col-lg-3">
-        <div class="extras-card h-100 text-center">
-          <div class="extras-card-title">Geração Alfa&Ômega</div>
-          <div class="extras-card-body">
-            <img class="extras-card-image" src="/img/GerçãoAO%20(1).PNG" alt="Geração Alfa&Ômega" loading="lazy" />
-            <p class="small mb-0">Encontros mensais nas paróquias pelos retirantes.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-6 col-lg-3">
-        <div class="extras-card h-100 text-center">
-          <div class="extras-card-title">Agenda</div>
-          <div class="extras-card-body">
-            <div class="extras-emoji">📅</div>
-            <p class="small mb-0">Fique por dentro das próximas atividades.</p>
-          </div>
-        </div>
+      
+      
+      
       </div>
     </div>
   </div>
 </section>
+
+<!-- Seção: Colaboradores (carrossel automático) — última seção -->
+<section id="colaboradores" class="partners-section py-5">
+  <div class="container">
+    <div class="row align-items-center gy-2 mb-3">
+      <div class="col-12">
+        <h2 class="partners-title">Colaboradores</h2>
+        <p class="partners-subtitle">Apoio que nos fortalece</p>
+      </div>
+    </div>
+
+    <div class="partners-carousel" aria-label="Carrossel de colaboradores">
+      <div class="partners-track">
+        <!-- Sequência A -->
+        <img class="partner-logo" src="/img/apoiadores/apoiador%20(1).png" alt="Colaborador 1" loading="lazy" />
+        <img class="partner-logo" src="/img/apoiadores/apoiador%20(2).png" alt="Colaborador 2" loading="lazy" />
+        <img class="partner-logo" src="/img/apoiadores/apoiador%20(3).png" alt="Colaborador 3" loading="lazy" />
+        <img class="partner-logo" src="/img/apoiadores/apoiador%20(4).png" alt="Colaborador 4" loading="lazy" />
+        <img class="partner-logo" src="/img/apoiadores/apoiador%20(5).png" alt="Colaborador 5" loading="lazy" />
+        <img class="partner-logo" src="/img/apoiadores/apoiador%20(6).png" alt="Colaborador 6" loading="lazy" />
+        <!-- Sequência B (duplicada para rolagem contínua) -->
+        <img class="partner-logo" src="/img/apoiadores/apoiador%20(1).png" alt="Colaborador 1" loading="lazy" />
+        <img class="partner-logo" src="/img/apoiadores/apoiador%20(2).png" alt="Colaborador 2" loading="lazy" />
+        <img class="partner-logo" src="/img/apoiadores/apoiador%20(3).png" alt="Colaborador 3" loading="lazy" />
+        <img class="partner-logo" src="/img/apoiadores/apoiador%20(4).png" alt="Colaborador 4" loading="lazy" />
+        <img class="partner-logo" src="/img/apoiadores/apoiador%20(5).png" alt="Colaborador 5" loading="lazy" />
+        <img class="partner-logo" src="/img/apoiadores/apoiador%20(6).png" alt="Colaborador 6" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+// Rolagem contínua sem salto para o carrossel de colaboradores
+(function() {
+  var carousel = document.querySelector('.partners-carousel');
+  if (!carousel) return;
+  var track = carousel.querySelector('.partners-track');
+  if (!track) return;
+
+  var offset = 0; // posição X atual
+  var speed = 0.6; // pixels por frame (mais rápido = número maior)
+  var running = true;
+
+  function step() {
+    if (!running) return;
+    offset -= speed;
+    var half = track.scrollWidth / 2; // largura de metade (sequência A)
+    if (-offset >= half) {
+      // quando atingir metade, volta para 0 para manter continuidade
+      offset = 0;
+    }
+    track.style.transform = 'translateX(' + offset + 'px)';
+    requestAnimationFrame(step);
+  }
+
+  requestAnimationFrame(step);
+
+  // pausa ao passar o mouse
+  carousel.addEventListener('mouseenter', function() { running = false; });
+  carousel.addEventListener('mouseleave', function() {
+    if (!running) {
+      running = true;
+      requestAnimationFrame(step);
+    }
+  });
+})();
+</script>
+
+<!-- (remoção da seção Colaboradores aqui; ela será movida para o final) -->
+
+<!-- Seção: Revista Alfa&Ômega — última seção -->
+<section id="revista" class="revista-section py-5">
+  <div class="container">
+    <div class="row mb-3">
+      <div class="col-12">
+        <h2 class="revista-title">Revista Alfa&Ômega</h2>
+      </div>
+    </div>
+
+    <div class="row g-4 revista-grid" aria-label="Templates de imagem da Revista">
+      <div class="col-6 col-md-4 col-lg-2"><div class="revista-card-placeholder" role="img" aria-label="Template de imagem"></div></div>
+      <div class="col-6 col-md-4 col-lg-2"><div class="revista-card-placeholder" role="img" aria-label="Template de imagem"></div></div>
+      <div class="col-6 col-md-4 col-lg-2"><div class="revista-card-placeholder" role="img" aria-label="Template de imagem"></div></div>
+      <div class="col-6 col-md-4 col-lg-2"><div class="revista-card-placeholder" role="img" aria-label="Template de imagem"></div></div>
+      <div class="col-6 col-md-4 col-lg-2"><div class="revista-card-placeholder" role="img" aria-label="Template de imagem"></div></div>
+      <div class="col-6 col-md-4 col-lg-2"><div class="revista-card-placeholder" role="img" aria-label="Template de imagem"></div></div>
+    </div>
+
+    <div class="row align-items-center revista-meta mt-5">
+      <div class="col-12 col-lg-6">
+        <div class="revista-meta-title">Redes sociais</div>
+        <a class="revista-handle" href="https://instagram.com/retiroalfaeomega" target="_blank" rel="noopener">@retiroalfaeomega</a>
+      </div>
+      <div class="col-12 col-lg-6">
+        <div class="revista-meta-title">E-mail</div>
+        <a class="revista-mail" href="mailto:alfaeomegarc@gmail.com">alfaeomegarc@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="revista-top-link mt-4 text-end">
+      <a href="#" class="revista-back-to-top">Voltar ao topo</a>
+    </div>
+  </div>
+</section>
+
+<script>
+// Scroll suave para "Voltar ao topo" na seção Revista
+(function() {
+  var link = document.querySelector('.revista-back-to-top');
+  if (!link) return;
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
