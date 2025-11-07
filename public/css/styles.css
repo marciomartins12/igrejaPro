@@ -303,7 +303,10 @@ footer a:hover {
   left: 0;
   right: 0;
   height: 96px; /* quadrados mais altos */
-  background-image: url('/img/xadrezdaborda.png');
+  background-image: image-set(
+    url('/img/xadrezdaborda.webp') type('image/webp'),
+    url('/img/xadrezdaborda.png') type('image/png')
+  );
   background-repeat: repeat-x;
   background-size: 800px 96px; /* tiles muito mais largos => bem menos repetição */
   background-position: center;
